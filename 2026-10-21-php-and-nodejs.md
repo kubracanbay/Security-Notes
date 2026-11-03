@@ -2,7 +2,7 @@
 
 *Kübra Nur Canbay, 23 October 2026*
 
-On 21 October, PHP and Node.js both shipped security fixes. The timing made it look like one story, and some posts online treated it that way. It wasn't. These are two separate runtimes with separate bugs, so if you only run one of them, only one of these applies to you.
+On 21 October, PHP and Node.js both shipped security fixes. Because it happened on the same day, some posts online treated it as one story. They are two separate runtimes with separate bugs, so if you only run one of them, only one of these applies to you.
 
 ## PHP
 
@@ -43,6 +43,8 @@ PHP shipped its fixes within a day of announcing them, which is impressive. What
 At Magicorn, we updated the affected client environments and told our clients what to change. We have also recently launched a security product for our clients, and I'm curious to see where it goes.
 
 My honest view: with AI in the picture, security vulnerabilities will be one of the biggest problems of the years ahead.
+
+See also: [October 2026 roundup](2026-10-october-roundup.md)
 
 ## Sources
 
