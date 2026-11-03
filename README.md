@@ -5,6 +5,7 @@ Notes on security events I follow: what happened, who is affected and what to do
 | Date | Note |
 | --- | --- |
 | 2026-10-21 | [PHP and Node.js security releases](2026-10-21-php-and-nodejs.md) |
+| 2026-11-03 | [October 2026: when trusted tools became the way in](2026-10-october-roundup.md) |
 
 These notes are my own and do not represent my employer.
 
