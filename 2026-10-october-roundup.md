@@ -2,15 +2,15 @@
 
 *Kübra Nur Canbay, 3 November 2026*
 
-October was a heavy month for security. Looking back, what connects the biggest incidents is not one clever exploit. It is trust: attackers got in through release pipelines, vendor apps and runtimes that people were right to rely on.
+October was a busy month for security. Several of the biggest incidents started with something people already trusted: an official release pipeline, a vendor's cloud app or a widely used runtime.
 
-Below are four incidents that are confirmed by the affected projects or vendors themselves.
+Here are four incidents confirmed by the affected projects or vendors.
 
 ## 1. LiteLLM 1.107.0: a poisoned release (21 October)
 
 LiteLLM, an open-source gateway many teams use to reach AI model providers, says its release pipeline was compromised and used to publish a malicious `litellm==1.107.0`. The package was on PyPI for about two hours (11:39 to 13:23 UTC), and the Docker tags `v1.107.0`, `latest`, `main-latest` and `main-stable` also pointed to a malicious image. According to reports, the attackers used stolen GitHub CLI tokens belonging to LiteLLM engineers.
 
-The malicious code ran whenever Python started, even if LiteLLM was never imported, and collected cloud tokens, private keys and environment variables. LiteLLM's advice is clear: if you installed or ran 1.107.0 in that window, assume the system is compromised. Rotate credentials from a clean machine and rebuild from a verified release. LiteLLM says customers on its private enterprise release were not affected.
+The malicious code ran whenever Python started, even if LiteLLM was never imported, and collected cloud tokens, private keys and environment variables. LiteLLM says anyone who installed or ran 1.107.0 in that window should assume the system is compromised, rotate credentials from a clean machine and rebuild from a verified release. LiteLLM says customers on its private enterprise release were not affected.
 
 ## 2. ConnectWise Cloud Backup: a vendor app turned against its customers (16 October)
 
@@ -24,17 +24,15 @@ PHP shipped emergency fixes for two flaws rated 9.2 that allow remote code execu
 
 ## 4. Node.js: remote code execution in the runtime (21 October)
 
-On the same day, Node.js released scheduled fixes for ten vulnerabilities, including a Brotli decoder flaw that can lead to remote code execution. Same note as above.
+On the same day, Node.js released scheduled fixes for ten vulnerabilities, including a Brotli decoder flaw that can lead to remote code execution. More in the same note.
 
-## The pattern
+## What I take from this
 
-None of these victims did anything unusual. They installed an official package, trusted an established vendor, or ran a widely used runtime. That is exactly why these attacks worked.
-
-A few habits would have reduced the damage in every case:
+The people affected didn't do anything unusual. They installed an official package, used an established vendor or ran a common runtime. A few habits would have limited the damage:
 
 - Pin dependencies by version and hash, and container images by digest, so a new "latest" never reaches production on its own.
 - Review the third-party apps that hold consent to your cloud and Microsoft 365 tenants, and remove the ones you no longer need.
-- Keep an inventory of the runtimes and versions you run, so patching day starts with a list instead of a search.
+- Keep an inventory of the runtimes and versions you run, so you know what to patch.
 - When credentials may have leaked, rotate them from a clean environment, not from the machine that may be compromised.
 
 ## Sources
